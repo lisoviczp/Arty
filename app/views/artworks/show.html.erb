@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<div class="show-content" style="width: 50%; margin-left: 25%">
+  <p>
+    <strong>Name:</strong>
+    <%= @artwork.name %>
+  </p>
+
+  <p>
+    <strong>Content type:</strong>
+    <%= @artwork.content_type %>
+  </p>
+
+  <p>
+    <strong>Collection boolean:</strong>
+    <%= @artwork.collection_boolean %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @artwork.description %>
+  </p>
+
+  <p>
+    <%= image_tag @artwork.image.url %>
+  </p>
+
+  <%= link_to 'Edit', edit_artwork_path(@artwork) %> |
+  <%= link_to 'Back', artworks_path %>
+  <%= link_to 'Destroy', @artwork, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>

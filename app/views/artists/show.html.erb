@@ -1,0 +1,41 @@
+<style>
+
+img {
+  width: 50%;
+}
+
+</style>
+
+<p id="notice"><%= notice %></p>
+
+<div class="show-content" style="width: 80%; margin-left: 10%">
+  <p>
+    <strong>Name:</strong>
+    <%= @artist.first_name %>
+  </p>
+
+  <p>
+    <strong>Content type:</strong>
+    <%= @artist.last_name %>
+  </p>
+
+  <p>
+    <strong>Collection boolean:</strong>
+    <%= @artist.email %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @artist.description %>
+  </p>
+
+  <p div="artist-pic">
+    <strong></strong>
+    <%= image_tag @artist.image.url %>
+  </p>
+
+  <%= link_to 'Edit', edit_artist_path(@artist) %> |
+  <%= link_to 'Back', artists_path %>
+  <%= link_to 'Destroy', @artist, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+</div>

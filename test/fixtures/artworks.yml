@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  content_type: MyString
+  collection_boolean: MyString
+  description: MyText
+
+two:
+  name: MyString
+  content_type: MyString
+  collection_boolean: MyString
+  description: MyText

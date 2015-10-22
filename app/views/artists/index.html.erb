@@ -1,0 +1,88 @@
+<style>
+
+tbody td {
+  font-size: 0.9em;
+  font-family: helvetica;
+}
+
+img {
+  width: 300px;
+}
+
+table {
+  width: 100%;
+  border: 1px solid black;
+}
+</style>
+<h1> hello <%= current_artist.first_name %> </h1>
+<div class="content-container">
+    <div class="page-header">
+      <h1>Listing artists</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Content type</th>
+            <th>Collection boolean</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Artist</th>
+            <th>Image</th>
+            <th colspan="12"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @artists.each do |artist| %>
+            <tr>
+              <td><%= artist.first_name %></td>
+              <td><%= artist.last_name %></td>
+              <td><%= artist.email %></td>
+              <td><%= artist.artist_type %></td>
+              <td><%= artist.description %></td>
+
+              <td> Artist: </td>
+              <td><%= link_to image_tag(artist.image.url), artist %></td>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+
+    <%= link_to 'New artist', new_artist_path %>
+
+    <div class="page-header" style="display:none;">
+      <h1>Carousel</h1>
+    </div>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="display:none;">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" style="width:100%;" role="listbox">
+        <div class="item active">
+          <img data-src="/assets/5192.jpg" src="/assets/bearcrawl.gif" alt="First slide">
+        </div>
+        <div class="item">
+          <img data-src="/assets/images/5192.jpg" src="/assets/jets.jpg" alt="Second slide">
+        </div>
+        <div class="item">
+          <img data-src="holder.js/1140x500/auto/#555:#333/text:Third slide" src="/assets/5192.jpg" alt="Third slide">
+        </div>
+      </div>
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+</div>
+
