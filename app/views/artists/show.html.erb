@@ -4,38 +4,68 @@ img {
   width: 50%;
 }
 
+.nav {
+  float: left;
+  /*border: 1px solid green;*/
+  height: 100%;
+}
+
+.show-content {
+  float:left;
+  border: 1px solid orange;
+}
+
+.container-fluid {
+  /*float:left;*/
+  border: 1px solid black;
+  width:100%;
+}
+
+.content {
+  border: 1px solid blue;
+  /*margin: 2em;*/
+}
+
+.jumbotron {
+  background-image: url('/assets/jets.jpg');
+  color: white;
+}
+
 </style>
 
-<p id="notice"><%= notice %></p>
 
-<div class="show-content" style="width: 80%; margin-left: 10%">
-  <p>
-    <strong>Name:</strong>
-    <%= @artist.first_name %>
-  </p>
-
-  <p>
-    <strong>Content type:</strong>
-    <%= @artist.last_name %>
-  </p>
-
-  <p>
-    <strong>Collection boolean:</strong>
-    <%= @artist.email %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= @artist.description %>
-  </p>
-
-  <p div="artist-pic">
-    <strong></strong>
-    <%= image_tag @artist.image.url %>
-  </p>
-
-  <%= link_to 'Edit', edit_artist_path(@artist) %> |
-  <%= link_to 'Back', artists_path %>
-  <%= link_to 'Destroy', @artist, method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="nav nav-pills nav-stacked" style="">
 
 </div>
+
+<div class="jumbotron">
+  <h1> <%= @artist.full_name if @artist.first_name %></h1>
+  <p> <%= @artist.email if @artist.email %></p> 
+  <p> <%= @artist.description if @artist.description %> </p> 
+  <p div="artist-pic">
+    <% image_tag @artist.image.url(:small) if @artist.image %>
+  </p>
+  <% if @artist == current_artist %>
+    <%= link_to 'Edit', edit_artist_path(@artist) %> |
+    <%= link_to 'Back', artists_path %> |
+    <%= link_to 'Destroy', @artist, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
+  <% end %>
+</div>
+
+
+
+<div class="content container-fluid" style="">
+  <h1> artworks </h1>
+  <% Artwork.all.each do |artwork| %>
+    <% if artwork.artist == @artist %>
+      <%= link_to image_tag(artwork.image.url(:medium)), artwork  %> </br> </br>
+      <% if artwork.artist == current_artist %>
+        <%= link_to 'Edit', edit_artwork_path(artwork) %> |
+        <%= link_to 'Destroy', artwork, method: :delete, data: { confirm: 'Are you sure?' } %></br> </br></br> </br>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+

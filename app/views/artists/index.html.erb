@@ -10,24 +10,21 @@ img {
 }
 
 table {
-  width: 100%;
-  border: 1px solid black;
+  /*width: 100%;*/
+  /*border: 1px solid black;*/
 }
+
 </style>
-<h1> hello <%= current_artist.first_name %> </h1>
+<h1>listing all artists</h1>
 <div class="content-container">
     <div class="page-header">
-      <h1>Listing artists</h1>
-
-      <table>
+      <table class="table table-hover">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Content type</th>
-            <th>Collection boolean</th>
+            <th>Name </th>
+            <th>Email </th>
+            <th>Specialty </th>
             <th>Description</th>
-            <th>Edit</th>
-            <th>Artist</th>
             <th>Image</th>
             <th colspan="12"></th>
           </tr>
@@ -36,15 +33,11 @@ table {
         <tbody>
           <% @artists.each do |artist| %>
             <tr>
-              <td><%= artist.first_name %></td>
-              <td><%= artist.last_name %></td>
+              <td><%= artist.full_name %></td>
               <td><%= artist.email %></td>
               <td><%= artist.artist_type %></td>
               <td><%= artist.description %></td>
-
-              <td> Artist: </td>
               <td><%= link_to image_tag(artist.image.url), artist %></td>
-
             </tr>
           <% end %>
         </tbody>

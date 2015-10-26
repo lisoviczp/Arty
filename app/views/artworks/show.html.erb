@@ -7,6 +7,11 @@
   </p>
 
   <p>
+    <strong>Creator:</strong>
+    <%= @artwork.artist.full_name %>
+  </p>
+
+  <p>
     <strong>Content type:</strong>
     <%= @artwork.content_type %>
   </p>
@@ -21,11 +26,15 @@
     <%= @artwork.description %>
   </p>
 
+
+
   <p>
-    <%= image_tag @artwork.image.url %>
+    <%= image_tag @artwork.image.url(:medium) %>
   </p>
 
-  <%= link_to 'Edit', edit_artwork_path(@artwork) %> |
-  <%= link_to 'Back', artworks_path %>
-  <%= link_to 'Destroy', @artwork, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% if @artwork.artist == current_user %>
+    <%= link_to 'Edit', edit_artwork_path(@artwork) %> |
+    <%= link_to 'Back', artworks_path %>
+    <%= link_to 'Destroy', @artwork, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
 </div>
