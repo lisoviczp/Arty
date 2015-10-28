@@ -1,4 +1,15 @@
-<div class="new-form" style="margin:5em;">
+    <!-- Le styles -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <style>
+
+    </style>
+
+<!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy -->
+<!-- second guy second guy second guy second guy second guy second guy second guy second guy -->
+
+<div class="" style="margin:5em;">
+  <div class="">
   <%= form_for(@artwork) do |f| %>
     <% if @artwork.errors.any? %>
       <div id="error_explanation">
@@ -12,29 +23,60 @@
       </div>
     <% end %>
 
-    <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </div>
-    <div class="field">
-      <%= f.label :content_type %><br>
-      <%= f.text_field :content_type %>
-    </div>
-    <div class="field">
-      <%= f.label :collection_boolean %><br>
-      <%= f.text_field :collection_boolean %>
-    </div>
-    <div class="field">
-      <%= f.label :description %><br>
-      <%= f.text_area :description %>
+    <div class="featurette">
+      <img class="featurette-image pull-right" src="../assets/chrome.png">
+      <h2 class="featurette-heading" style="color:red;">give it a name</h2>
+      <p class="lead">all creations need a name</p>
+      <div class="field">
+        <%= f.text_field :name %>
+        <%= f.file_field :image %>
+      </div>
     </div>
 
-   <div class="field">
-      <%= f.file_field :image %>
+    <hr class="featurette-divider">
+    <div class="featurette">
+      <img class="featurette-image pull-right" src="../assets/chrome.png">
+      <h2 class="featurette-heading">genre</h2>
+      <p class="lead">
+        <div class="field">
+          <%= f.text_field :content_type %>
+        </div>
+      </p>
+      <h2 class="featurette-heading">collection?</h2>
+      <p class="lead">
+        <div class="field">
+          <%= f.text_field :collection_boolean %>
+        </div>
+      </p>
+      <h2 class="featurette-heading">add a description</h2>
+      <p class="lead">
+        <div class="text-area">
+          <%= f.text_area :description, :input_html => { rows: 25 } %>
+        </div>
+      </p>
     </div>
-      
-    <div class="actions">
-      <%= f.submit %>
+
+    <hr class="featurette-divider">
+    <div class="featurette">
+      <div class="actions">
+        <%= f.submit %>
+      </div>
     </div>
+
   <% end %>
+  </div>
+  <!-- <% link_to 'Back', artworks_path %> -->
+
 </div>
+
+
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+    <p>&copy; 2015 Artery &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+  </footer>
+
+</div><!-- /.container -->
+
+

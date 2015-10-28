@@ -1,40 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<div class="show-content" style="width: 50%; margin-left: 25%">
-  <p>
-    <strong>Name:</strong>
-    <%= @artwork.name %>
-  </p>
+<div class="show-contents" style="width: 50%; margin-left: 25%">
+  <div class="solo-artwork">
+    <%= image_tag @artwork.image.url %>
+  </div>
 
-  <p>
-    <strong>Creator:</strong>
-    <%= @artwork.artist.full_name %>
-  </p>
+  <hr class="featurette-divider">
+  <div class="featurette">
+    <div class="featurette-image pull-right" > <%= image_tag(@artwork.artist.image.url, size: "75x400", alt: "Edit Entry") %> </div>
+    <h2 class="featurette-heading"><%= @artwork.name %></h2>
+    <p class="lead">
+      <p>
+        <strong>Creator:</strong>
+        <%= @artwork.artist.full_name %>
+      </p>
+      <p>
+        <strong>Content type:</strong>
+        <%= @artwork.content_type %>
+      </p>
+      <p>
+        <strong>Collection boolean:</strong>
+        <%= @artwork.collection_boolean %>
+      </p>
+      <p>
+        <strong>Description:</strong>
+        <%= @artwork.description %>
+      </p>
+      <p>
+        <% if @artwork.artist == current_artist %>
+          <%= link_to 'edit', edit_artwork_path(@artwork) %> |
+          <%= link_to 'delete', @artwork, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </p>
+    </p>
+  </div>
 
-  <p>
-    <strong>Content type:</strong>
-    <%= @artwork.content_type %>
-  </p>
 
-  <p>
-    <strong>Collection boolean:</strong>
-    <%= @artwork.collection_boolean %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= @artwork.description %>
-  </p>
-
-
-
-  <p>
-    <%= image_tag @artwork.image.url(:medium) %>
-  </p>
-
-  <% if @artwork.artist == current_user %>
-    <%= link_to 'Edit', edit_artwork_path(@artwork) %> |
-    <%= link_to 'Back', artworks_path %>
-    <%= link_to 'Destroy', @artwork, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
 </div>

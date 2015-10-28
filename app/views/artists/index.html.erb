@@ -15,7 +15,28 @@ table {
 }
 
 </style>
-<h1>listing all artists</h1>
+
+<div class="content-container">
+<h1>LISTING ALL ARTISTS</h1>
+  <% @artists.each do |artist| %>
+    <div class="featurette">
+      <div class="featurette-image pull-right" > <%= link_to image_tag(artist.image.url, size: "25x150", alt: "Edit Entry"), artist %> </div>
+      <h2 class="featurette-heading"><%= artist.full_name %></h2>
+      <p class="lead"><%= artist.email %></p>
+      <p class="lead">  <%= artist.artist_type %></p>
+      <p class="lead"> <%= artist.description %></p>
+      <hr class="featurette-divider">
+    </tr>
+  <% end %>
+  </div>
+
+</div>
+
+
+
+
+
+<!-- <h1>listing all artists</h1>
 <div class="content-container">
     <div class="page-header">
       <table class="table table-hover">
@@ -77,5 +98,5 @@ table {
         <span class="sr-only">Next</span>
       </a>
     </div>
-</div>
+</div> -->
 
