@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="show-contents" style="width: 50%; margin-left: 25%">
+  <h2 class="featurette-heading" id="center"><%= @artwork.name %></h2>
   <div class="solo-artwork">
     <%= image_tag @artwork.image.url %>
   </div>
@@ -8,7 +9,6 @@
   <hr class="featurette-divider">
   <div class="featurette">
     <div class="featurette-image pull-right" > <%= image_tag(@artwork.artist.image.url, size: "75x400", alt: "Edit Entry") %> </div>
-    <h2 class="featurette-heading"><%= @artwork.name %></h2>
     <p class="lead">
       <p>
         <strong>Creator:</strong>

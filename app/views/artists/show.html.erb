@@ -1,35 +1,5 @@
 <style>
 
-img {
-  width: 50%;
-}
-
-.nav {
-  float: left;
-  /*border: 1px solid green;*/
-  height: 100%;
-}
-
-.show-content {
-  float:left;
-  border: 1px solid orange;
-}
-
-.container-fluid {
-  /*float:left;*/
-  border: 1px solid black;
-  width:100%;
-}
-
-.content {
-  border: 1px solid blue;
-  /*margin: 2em;*/
-}
-
-.jumbotron {
-  background-image: url('/assets/jets.jpg');
-  color: white;
-}
 
 </style>
 
@@ -42,29 +12,39 @@ img {
   <h1> <%= @artist.full_name if @artist.first_name %></h1>
   <p> <%= @artist.email if @artist.email %></p> 
   <p> <%= @artist.description if @artist.description %> </p> 
+  <p> <%= link_to @artist.url if @artist.url %> </p> 
   <p div="artist-pic">
     <% image_tag @artist.image.url(:small) if @artist.image %>
   </p>
   <% if @artist == current_artist %>
-    <%= link_to 'Edit', edit_artist_path(@artist) %> |
-    <%= link_to 'Back', artists_path %> |
-    <%= link_to 'Destroy', @artist, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'edit profile', edit_artist_path(@artist) %>
+    <!-- <% link_to 'Destroy', @artist, method: :delete, data: { confirm: 'Are you sure?' } %> -->
     <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
   <% end %>
 </div>
 
 
-
 <div class="content container-fluid" style="">
-  <h1> artworks </h1>
   <% Artwork.all.each do |artwork| %>
-    <% if artwork.artist == @artist %>
-      <%= link_to image_tag(artwork.image.url(:medium)), artwork  %> </br> </br>
-      <% if artwork.artist == current_artist %>
-        <%= link_to 'Edit', edit_artwork_path(artwork) %> |
-        <%= link_to 'Destroy', artwork, method: :delete, data: { confirm: 'Are you sure?' } %></br> </br></br> </br>
+    <div class="featurette" id="listing-featurette">
+      <div class="field">
+      <% if artwork.artist == @artist %>
+        <div class="pull-left"id ="artwork-medium"> <%= link_to image_tag(artwork.image.url(:medium)), artwork  %> </div>
+          <h3 class="featurette-heading"> <%=artwork.name %></h3>
+          <p id="price">price: $<%= artwork.price %> </p>
+          <% if artwork.availability %>
+            <p id="available"> Available </p>
+          <% else %>
+            <p id="sold"> SOLD </p>
+          <% end %>
+        <% if artwork.artist == current_artist %>
+          <%= link_to 'Edit', edit_artwork_path(artwork) %>
+          <% link_to 'delete', artwork, method: :delete, data: { confirm: 'Are you sure?' } %></br> </br></br> </br>
+        <% end %>
       <% end %>
-    <% end %>
+      </div>
+    </div>
+    <hr class="featurette-divider"/>    
   <% end %>
 </div>
 

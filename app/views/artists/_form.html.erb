@@ -1,5 +1,5 @@
 <div class="new-form" style="margin:5em;">
-  <%= form_for(@artist) do |f| %>
+  <%= simple_form_for(@artist) do |f| %>
     <% if @artist.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@artists.errors.count, "error") %> prohibited this artists from being saved:</h2>
@@ -23,6 +23,9 @@
     <div class="field">
       <%= f.label :email %><br>
       <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.input :url, label: "website" %><br>
     </div>
     <div class="field">
       <%= f.label :description %><br>
