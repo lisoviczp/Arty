@@ -45,6 +45,9 @@ gem 'aws-sdk'
 gem 'simple_form'
 gem 'devise'
 gem "paperclip", "~> 4.3"
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'roadie'
+gem 'roadie-rails'
 
 group :development do
 	gem 'pry-rails'

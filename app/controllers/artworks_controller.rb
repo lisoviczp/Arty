@@ -11,6 +11,9 @@ class ArtworksController < ApplicationController
   # GET /artworks/1
   # GET /artworks/1.json
   def show
+    # uncomment this, it works...
+    # UserMailer.welcome_email(@user).deliver_now
+    # UserMailer.commission_notify_email(@user).deliver_now
   end
 
   # GET /artworks/new

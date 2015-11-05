@@ -11,8 +11,16 @@ class ArtistsController < ApplicationController
   # GET /artists/1
   # GET /artists/1.json
   def show
-    @artist = Artist.find(params[:id])      
+    @artist = Artist.find(params[:id])    
+    # pry
   end
+
+  def commission_artist
+    @artist = Artist.find(params[:id])  
+    # ArtistMailer.commission_notify_email(@artist).deliver!
+    redirect_to root_path
+  end
+
 
   # GET /artists/new
   def new
@@ -33,6 +41,7 @@ class ArtistsController < ApplicationController
       if @artist.save
         format.html { redirect_to @artist, notice: 'artist was successfully created.' }
         format.json { render :show, status: :created, location: @artist }
+        ArtistMailer.welcome_email(@artist).deliver_later  
       else
         format.html { render :new }
         format.json { render json: @artist.errors, status: :unprocessable_entity }

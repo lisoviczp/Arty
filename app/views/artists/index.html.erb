@@ -21,10 +21,10 @@ table {
   <% @artists.each do |artist| %>
     <div class="featurette">
       <div class="featurette-image pull-right" > <%= link_to image_tag(artist.image.url, size: "25x150", alt: "Edit Entry"), artist %> </div>
-      <h2 class="featurette-heading"><%= artist.full_name %></h2>
-      <p class="lead"><%= artist.email %></p>
-      <p class="lead">  <%= artist.artist_type %></p>
-      <p class="lead"> <%= artist.description %></p>
+      <h2 class="featurette-heading"><%= artist.full_name if artist.first_name %></h2>
+      <p class="lead"><%= artist.email if artist.email  %></p>
+      <p class="lead">  <%= artist.artist_type if artist.artist_type %></p>
+      <p class="lead"> <%= artist.description if artist.description %></p>
       <hr class="featurette-divider">
     </div>
   <% end %>
@@ -53,7 +53,7 @@ table {
         <tbody>
           <% @artists.each do |artist| %>
             <tr>
-              <td><%= artist.full_name %></td>
+              <td><%= artist.first_name if artist.first_name %></td>
               <td><%= artist.email %></td>
               <td><%= artist.artist_type %></td>
               <td><%= artist.description %></td>
