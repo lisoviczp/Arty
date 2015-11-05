@@ -8,7 +8,12 @@ Rails.application.routes.draw do
 
   resources :models
 
-  get '/artists/:id/commission_artist', to: 'artists#commission_artist', as: :commission_artist
+  # get to the commission page
+  get '/artists/:id/commission_page', to: 'artists#commission_page', as: :commission_page
+
+  # call the actual URL for sending the commission email
+  post '/artists/:id/commission_artist', to: 'artists#commission_artist', as: :commission_artist
+  # get '/artists/:id/commission_artist', to: 'artists#commission_artist', as: :commission_artist
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

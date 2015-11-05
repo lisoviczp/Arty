@@ -15,10 +15,30 @@ class ArtistsController < ApplicationController
     # pry
   end
 
+  def commission_page
+    @artist = Artist.find(params[:id])    
+
+  end
+
   def commission_artist
+    # pry
     @artist = Artist.find(params[:id])  
     # ArtistMailer.commission_notify_email(@artist).deliver!
-    redirect_to root_path
+
+    # need to put checks in here for each of these, and then send them in the ArtistMailer method
+    if request.post?
+      @comment=request.POST['commission-comment']
+      @due_date=request.POST['commission-due-date']
+      @price=request.POST['commission-price']
+      puts @comment
+      puts @due_date
+      puts @price
+      pry
+      redirect_to root_path
+    else
+      puts "whatttt"
+    end
+
   end
 
 
