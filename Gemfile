@@ -48,6 +48,7 @@ gem "paperclip", "~> 4.3"
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'roadie'
 gem 'roadie-rails'
+gem 'bootstrap-switch-rails', '~> 3.0.0'
 
 group :development do
 	gem 'pry-rails'

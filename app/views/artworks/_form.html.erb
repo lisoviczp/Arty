@@ -1,15 +1,14 @@
+
     <!-- Le styles -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <style>
 
-    </style>
 
 <!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy --><!-- second guy second guy second guy second guy second guy second guy second guy second guy -->
 <!-- second guy second guy second guy second guy second guy second guy second guy second guy -->
 
 <div class="" style="margin:5em;">
-  <div class="">
+  <div class="new-artwork-container">
   <%= form_for(@artwork) do |f| %>
     <% if @artwork.errors.any? %>
       <div id="error_explanation">
@@ -24,19 +23,21 @@
     <% end %>
 
     <div class="featurette">
-      <img class="featurette-image pull-right" src="../assets/chrome.png">
+      <!-- <img class="featurette-image pull-right" src="../assets/chrome.png"> -->
       <h2 class="featurette-heading" style="color:red;">give it a name</h2>
       <p class="lead">all creations need a name</p>
       <div class="field">
         <%= f.text_field :name %>
+      </div>
+      <div class="field" id="file-upload">
         <%= f.file_field :image %>
       </div>
     </div>
 
     <hr class="featurette-divider">
     <div class="featurette">
-      <img class="featurette-image pull-right" src="../assets/chrome.png">
-      <h2 class="featurette-heading">genre</h2>
+      <!-- <img class="featurette-image pull-right" src="../assets/chrome.png"> -->
+      <h2 class="featurette-heading">medium</h2>
       <p class="lead">
         <div class="field">
           <%= f.text_field :content_type %>
@@ -53,6 +54,11 @@
         <div class="text-area">
           <%= f.text_area :description, :input_html => { rows: 25 } %>
         </div>
+      </p>
+      <h2 class="featurette-heading">is it available?</h2>
+      <p class="lead">
+          <%= f.label :availability, "free to purchase" %>
+          <%= f.check_box :availability %>
       </p>
     </div>
 

@@ -1,5 +1,54 @@
-<h2>Sign up</h2>
+<style>
+body {
+  background-image: url('/assets/tp1.png');
+}
+</style>
 
+<% if request.url.include? "artists" %>
+  <h2 id="page-header">Sign up as Artist</h2>
+  <div class="new-form">
+      <div class="featurette" id="login">
+		<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+		  <%= f.error_notification %>
+
+		  <div class="form-inputs">
+		    <%= f.input :email, required: true, autofocus: true %>
+		    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
+		    <%= f.input :password_confirmation, required: true %>
+		  </div>
+
+		  <div class="form-actions">
+		    <%= f.button :submit, "Sign up" %>
+		  </div>
+		<% end %>
+	  </div>
+  </div>
+  <%= render "devise/shared/links" %>
+<% elsif request.url.include? "users" %>
+  <h2 id="page-header">Sign up as User</h2>
+  <div class="new-form">
+      <div class="featurette" id="login">
+		<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+		  <%= f.error_notification %>
+
+		  <div class="form-inputs">
+		    <%= f.input :email, required: true, autofocus: true %>
+		    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
+		    <%= f.input :password_confirmation, required: true %>
+		  </div>
+
+		  <div class="form-actions">
+		    <%= f.button :submit, "Sign up" %>
+		  </div>
+		<% end %>
+	  </div>
+  </div>
+  <%= render "devise/shared/links" %>
+<% end %>
+
+
+<!-- Orig -->
+<!-- 
 <div class='hello' style="margin-left:5em;background-color:yellow;">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -15,4 +64,4 @@
   </div>
 <% end %>
 </div>
-<%= render "devise/shared/links" %>
+<%= render "devise/shared/links" %> -->

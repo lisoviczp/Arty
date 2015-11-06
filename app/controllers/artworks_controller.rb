@@ -48,6 +48,7 @@ class ArtworksController < ApplicationController
   # PATCH/PUT /artworks/1
   # PATCH/PUT /artworks/1.json
   def update
+    pry
     respond_to do |format|
       if @artwork.update(artwork_params)
         format.html { redirect_to @artwork, notice: 'Artwork was successfully updated.' }
@@ -77,6 +78,6 @@ class ArtworksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artwork_params
-      params.require(:artwork).permit(:name, :content_type, :collection_boolean, :description, :image, :artist_id)
+      params.require(:artwork).permit(:name, :content_type, :collection_boolean, :description, :image, :availability, :artist_id)
     end
 end

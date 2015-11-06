@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   root to: "artworks#index"
+  get 'sign_in' => 'signin#index', as: :sign_in
+
 
   devise_for :artists
   devise_for :users
   resources :artworks
   resources :artists
+  resources :users
 
   resources :models
 

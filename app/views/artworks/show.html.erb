@@ -11,11 +11,18 @@
     <div class="featurette-image pull-right" > <%= image_tag(@artwork.artist.image.url, size: "75x400", alt: "Edit Entry") %> </div>
     <p class="lead">
       <p>
+      <% if @artwork.availability %>
+        <p id="available"> Available </p>
+      <% else %>
+        <p id="sold"> SOLD </p>
+      <% end %>
+      </p> </br>
+      <p>
         <strong>Creator:</strong>
         <%= @artwork.artist.full_name %>
       </p>
       <p>
-        <strong>Content type:</strong>
+        <strong>Medium:</strong>
         <%= @artwork.content_type %>
       </p>
       <p>

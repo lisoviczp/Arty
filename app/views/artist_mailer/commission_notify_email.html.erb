@@ -52,7 +52,7 @@
       <table width="650" id="main" border="0" cellpadding="0" cellspacing="20">
         <tr>
           <td id="commission-notification" colspan="2">
-            <h3 id="commission-notification-header" style="color:green">Congratulations, your art is wanted!</h3>
+            <h3 id="commission-notification-header" style="color:green">Congratulations <%= @artist.first_name %>, your art is wanted!</h3>
             Artery user Phillip L wants to put you to work
           </td>
         </tr>
@@ -63,7 +63,7 @@
           <td valign="top">
             <h3 id="commission-notification-header" style="color:green">Description</h3>
               <p id="commission-message-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <%= @comment %>
               </p>
           </td>
         </tr>
@@ -73,7 +73,7 @@
         <tr class="episode">
           <td valign="top">
             <p id="commission-notification">
-              Phillip L would like to pay you $50.00 for this work to be finished by 12/31/2015. Do you accept this offer?</p>
+              Phillip L would like to pay you $<%= @price %> for this work to be finished by <%= @due_date %>. Do you accept this offer?</p>
             <p> <button> accept </button> <button> decline </button> <button> make counter offer</button> </p>
           </td>
         </tr>

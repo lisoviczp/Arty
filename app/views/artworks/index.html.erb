@@ -1,3 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="/Users/phillipl/Desktop/rails_sites/arty/app/assets/javascripts/masonry.pkgd.min.js"></script>
+  <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+
+/*
+  .carousel .item img {
+    height: 345px;
+    border: 5px solid green;
+  }
+*/
+
+  /*.container-images {
+    border: 5px solid red;
+    padding: 4%;
+    margin-bottom: 5%;
+  }*/
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+<h1> Welcome, <%= current_artist.first_name %> </h1> 
+<%= link_to 'New Artwork', new_artwork_path %>
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <% @artworks.each do |artwork| %>
+        <% if artwork == Artwork.first %>
+          <div class="item active" >
+            <a href= <%= embed = "/artworks/#{artwork.id}" %> >
+                <img src=<%= artwork.image.url %> style="height:500px;width:auto;">
+            </a>
+          </div>
+        <% elsif %>
+          <div class="item" >
+            <a href= <%= embed = "/artworks/#{artwork.id}" %> >
+              <img src=<%= artwork.image.url %> style="height:500px;width:auto;">
+            </a>
+          </div>     
+        <% end %>
+      <% end %>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+
+
+
 
 <!-- basic jumbotron -->
 <!-- <div class="jumbotron">
@@ -5,38 +86,39 @@
   <p>...</p>
   <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 </div> -->
-<script src="/Users/phillipl/Desktop/rails_sites/arty/app/assets/javascripts/masonry.pkgd.min.js"></script>
-<style>
 
-.container-images {
-  border: 5px solid red;
-  padding: 4%;
-  margin-bottom: 5%;
-}
-
-</style>
-
-<h1> Welcome, <%= current_artist.first_name %> </h1> 
-<%= link_to 'New Artwork', new_artwork_path %>
-
-
-<div class="container-images">
+<!-- <div class="container-images" style="display:none">
     <div class="grid js-masonry"
       data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 320 }'>
       <% @artworks.each do |artwork| %>
-        <%= artwork.name %></br>
+        <% artwork.name %></br>
         <!-- <td> Artist: <%= Artist.where(id: (artwork.artist_id)).first.full_name %> </td> -->
         <!-- <td> Artist: <%= artwork.artist.full_name %> </td>  -->
 
-        <div class="grid-item"><td><%= link_to image_tag(artwork.image.url), artwork %></td> </br></div>
+        <div class="grid-item"><td><% link_to image_tag(artwork.image.url), artwork %></td> </br></div>
       <% end %>
     </div>
 </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--=========================== bunch of crap================================= -->
+
     <br>
-
-
      <div class="row" style="display:none;">
       <div class="col-md-4">
         <a href="pulpitrock.jpg" class="thumbnail">
@@ -91,4 +173,6 @@
     </div>
 </div>
 
+</body>
+</html>
 

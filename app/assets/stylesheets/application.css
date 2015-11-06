@@ -11,16 +11,22 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require bootstrap3-switch
  *= require_self
  */
  .navbar {
   /*border: 5px solid green;*/
-  margin-bottom: 0
+  margin-bottom: -10px;
  }
 
 .content-container {
 	/*margin: 2px solid gray;*/
 	border: 2px solid gray;
+}
+
+#file-upload {
+  margin-left: 30%;
+  width: 40%;
 }
 
 /* unvisited link */
@@ -128,6 +134,7 @@ img {
   /*float:left;*/
   border: 1px solid black;
   width:100%;
+  background-image: url('/assets/tp1.png');
 }
 
 .content {
@@ -136,7 +143,7 @@ img {
 }
 
 .jumbotron {
-  /*background-image: url('/assets/jets.jpg');*/
+  /*background-image: url('/assets/tp2.png');*/
   background-color: #009bbb;
   color: white;
 /*  padding-top: 1em;
@@ -147,6 +154,25 @@ img {
   margin-top: 0;
 }
 
+#jumbo-center {
+  text-align: center;
+  margin-left: 15%;
+  width: 70%;
+  /*border: 1px solid black;*/
+  font-family: Helvetica;
+}
+
+#jumbo-center h2 {
+  text-align: center;
+  display: inline-block;
+  padding: 2em;
+}
+
+#jumbo-center button, a, a:link, a:hover, a:active, a:visited {
+  margin: 1em;
+  color: black;
+}
+
 #available {
   font-size: 2em;
   color: green;
@@ -155,6 +181,52 @@ img {
 #sold {
   font-size: 3em;
   color: red;
+}
+
+.new-form {
+  width: 40%;
+  /*text-align: center;*/
+  /*border: 2px solid green;*/
+
+  margin-left: 30%;
+  margin-top: 2.5em;
+  margin-bottom: 20em;
+  padding-top: 1em;
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-bottom: 7em;
+
+}
+
+
+.featurette#login {
+  border: 1px solid gray;
+  background-color: white;
+  margin-top: 0;
+  padding-top: 1em;
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-bottom: 7em;
+}
+
+#page-header {
+  text-align: center;
+  color: white;
+  font-size: 4em;
+  font-weight: 650;
+}
+
+.form-inputs {
+  margin-left: 2em;
+}
+
+.new-artwork-container {
+  padding-top: 0;
+  margin-top: 2em;
+  width: 40%;
+  margin-left: 30%;
+  text-align: center;
+  border:1px solid gray;
 }
 
 /*====================================================================================================*/
@@ -291,6 +363,8 @@ img {
 
     .featurette-divider {
       margin: 0px 0; /* Space out the Bootstrap <hr> more */
+      width: 80%;
+      margin-left: 10%;
     }
     .featurette {
       padding-top: 20px; /* Vertically center images part 1: add padding above and below text. */
@@ -298,12 +372,13 @@ img {
       /*height: 200px;*/
       /*border: 5px solid green;*/
       padding-left: 20px;
-      border: 2px solid blue;
+      /*border: 2px solid blue;*/
     }
 
     #listing-featurette {
       width: 70%;
       margin-left: 15%;
+      background-color: white;
     }
 
     .featurette-image {

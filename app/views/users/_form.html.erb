@@ -1,0 +1,43 @@
+<div class="new-form" style="margin:5em;">
+  <%= simple_form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@users.errors.count, "error") %> prohibited this users from being saved:</h2>
+
+        <ul>
+        <% @users.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.input :url, label: "website" %><br>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </div>
+
+   <div class="field">
+      <%= f.file_field :image %>
+    </div>
+      
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

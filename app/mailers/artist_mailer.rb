@@ -8,9 +8,12 @@ class ArtistMailer < ActionMailer::Base
     mail(to: "phillip.lisovicz@gmail.com", subject: 'Welcome to Artery!')
   end
 
-  def commission_notify_email(artist)
+  def commission_notify_email(artist, comment, due_date, price)
     @artist = artist
     @url  = 'http://example.com/login'
+    @comment = comment
+    @due_date = due_date
+    @price = price
     # mail(to: @artist.email, subject: "You've been commissioned!")
     mail(to: "phillip.lisovicz@gmail.com", subject: "You've been commissioned!")
   end
