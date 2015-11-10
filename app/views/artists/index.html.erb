@@ -14,19 +14,46 @@ table {
   /*border: 1px solid black;*/
 }
 
+#image-thumbnail.featurette-image.pull-right img {
+  height:200px;
+  width: auto;
+  margin-top: 4em;
+  margin-bottom: 4em;
+  padding-bottom: 1em;
+
+}
+
+#artist-list-item.featurette {
+  width: 60%;
+  margin-left: 20%;
+  border: 2px solid #001F84;
+  box-shadow: 1px 1px 1px #001F84;
+  border-radius: 5px;
+  background-color: white;
+  margin-bottom: 1em;
+}
+
+.artist-list-item-description {
+  padding: 1em;
+  padding-bottom: 2em;
+  word-wrap: break-word;
+}
+
 </style>
 
 <div class="content-container">
-<h1>LISTING ALL ARTISTS</h1>
+<h1 class="page-title">artists</h1>
   <% @artists.each do |artist| %>
-    <div class="featurette">
-      <div class="featurette-image pull-right" > <%= link_to image_tag(artist.image.url, size: "25x150", alt: "Edit Entry"), artist %> </div>
-      <h2 class="featurette-heading"><%= artist.full_name if artist.first_name %></h2>
-      <p class="lead"><%= artist.email if artist.email  %></p>
-      <p class="lead">  <%= artist.artist_type if artist.artist_type %></p>
-      <p class="lead"> <%= artist.description if artist.description %></p>
-      <hr class="featurette-divider">
+    <div class="featurette" id="artist-list-item">
+      <div class="featurette-image pull-right" id="image-thumbnail" > <%= link_to image_tag(artist.image.url, alt: "Edit Entry"), artist %> </div>
+      <div class="artist-list-item-description">
+        <h2 class="featurette-heading"><%= artist.full_name if artist.first_name %></h2>
+        <p class="lead"><%= artist.email if artist.email  %></p>
+        <p class="lead">  <%= artist.artist_type if artist.artist_type %></p>
+        <p class="lead"> <%= artist.description if artist.description %></p>
+      </div>
     </div>
+    <br><hr class="featurette-divider"></br>
   <% end %>
 </div>
 

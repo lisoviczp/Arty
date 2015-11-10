@@ -15,7 +15,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/artworks">favorites<span class="sr-only">(current)</span></a></li>
+        <li class=""><a href="/artworks">favorites<span class="sr-only">(current)</span></a></li>
         <li><a href="/artists">artists</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -42,8 +42,6 @@
     </div><!-- /.navbar-collapse -->
 </nav>
 
-<%= yield %>
-
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
@@ -60,6 +58,10 @@
 <script src="../assets/js/bootstrap-collapse.js"></script>
 <script src="../assets/js/bootstrap-carousel.js"></script>
 <script src="../assets/js/bootstrap-typeahead.js"></script>
+
+<%= yield %>
+
+
 
 
 </body>

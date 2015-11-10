@@ -16,3 +16,20 @@
 //= require turbolinks
 //= require_tree .
 //= require('bootstrap')
+
+$(document).ready(function(){
+  var message = $('.notice').html()
+  if (message.length != 0) {
+    $('.notice').show();
+	setTimeout(function(){
+	  $('.notice').remove();
+	}, 5000);
+  }
+ });
+
+
+$(document).ready(function(){
+  setTimeout(function(){
+    $('.alert').remove();
+  }, 5000);
+ })
