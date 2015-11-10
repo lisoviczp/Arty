@@ -28,13 +28,29 @@
     margin-bottom: 5%;
   }*/
 
+.top-section {
+  /*position: relative;*/
+}
+
+.top-section {
+  /*border: 2px solid green;*/
+  position: relative;
+  margin-bottom: 2%;
+  padding-bottom: 2%;
+}
+
   </style>
 </head>
 <body>
 
 <div class="container">
-<h1> Welcome, <%= current_artist.first_name %> </h1> 
-<%= link_to 'New Artwork', new_artwork_path %>
+  <div class="top-section">
+    <h1 style="float:left;"> Welcome, <%= current_artist.first_name %> </h1>
+    <h1 style="float:right;">  
+      <a href="/artworks/new"> upload <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> </a>
+    </h1>
+    <h1> 
+  </div>
   <br>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->

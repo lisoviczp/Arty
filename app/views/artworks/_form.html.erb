@@ -8,6 +8,14 @@
 <!-- second guy second guy second guy second guy second guy second guy second guy second guy -->
 
 <div class="" style="margin:5em;">
+  <% if @artwork.name  %>
+    <div class="show-contents" style="width: 50%; margin-left: 25%">
+        <div class="solo-artwork">
+          <%= image_tag @artwork.image.url %>
+        </div>
+    </div>
+  <% end %>
+
   <div class="new-artwork-container">
   <%= form_for(@artwork) do |f| %>
     <% if @artwork.errors.any? %>
@@ -21,6 +29,8 @@
         </ul>
       </div>
     <% end %>
+
+
 
     <div class="featurette">
       <!-- <img class="featurette-image pull-right" src="../assets/chrome.png"> -->
@@ -40,13 +50,8 @@
       <h2 class="featurette-heading">medium</h2>
       <p class="lead">
         <div class="field">
-          <%= f.text_field :content_type %>
-        </div>
-      </p>
-      <h2 class="featurette-heading">collection?</h2>
-      <p class="lead">
-        <div class="field">
-          <%= f.text_field :collection_boolean %>
+          <% f.text_field :content_type %>
+          <%= f.select :content_type, ['painting', 'print', 'video', 'photography', 'mixed media', 'sculpture'] %>
         </div>
       </p>
       <h2 class="featurette-heading">add a description</h2>

@@ -14,15 +14,39 @@
  *= require bootstrap3-switch
  *= require_self
  */
- .navbar {
-  /*border: 5px solid green;*/
-  margin-bottom: -10px;
- }
+
+/*nav .collapse.navbar-collapse {
+  border: 5px solid red;
+  margin-bottom: -10%;
+  padding-bottom: -100;
+}
+
+a.navbar-brand {
+  border: 3px solid red;
+  margin-bottom: -100px;
+  padding-bottom: -100px;
+}
+
+
+nav.navbar.navbar-default {
+    border: 4px solid blue;
+    padding: -100px;
+}*/
+
+nav a {
+  margin-bottom:0; 
+  padding-bottom:0; 
+}
+
+nav.navbar.navbar {
+  margin-bottom:0; 
+  padding-bottom:0;
+}
 
 .content-container {
-	/*margin: 2px solid gray;*/
 	border: 2px solid gray;
 }
+
 
 #file-upload {
   margin-left: 30%;
@@ -85,6 +109,29 @@ table {
   border: 1px solid black;
 }
 
+.artwork-description {
+  float: left;
+  /*border: 1px solid black;*/
+  margin-left: 2em;
+  margin-top: -10px;
+  word-wrap: break-word;
+  width: 50%;
+  margin-bottom: 2em;
+}
+
+p#sold.right{
+  margin-right: 3em;
+  float: right;
+  margin-top: 1em;
+  /*border:1px solid black;*/
+}
+
+p#available.right{
+  margin-right: 3em;
+  float: right;
+  margin-top: 1em;
+}
+
 .container-fluid {
   border: 1px solid black;
   padding-bottom: 0;
@@ -119,15 +166,37 @@ img {
   border: 3px solid orange;
 }
 
+p#notice {
+  background-color: #ffd900;
+  margin-top:-10px;
+}
+
+body {
+  /*background-color: #ffd900;*/
+  /*background-color: #7F9DFF;*/
+  background-color: #FFDCBE;
+}
+
+.container {
+  /*background-color: #ffd900;*/
+  /*background-color: #7F9DFF;*/
+  background-color: #FFDCBE;
+}
+
+body.container {
+  background-color: #FFDCBE;
+
+}
+
 .nav {
   float: left;
   /*border: 1px solid green;*/
   height: 100%;
 }
 
-.show-content {
-  float:left;
-  border: 1px solid orange;
+.show-contents {
+  /*float:left;*/
+  /*border: 1px solid orange;*/
 }
 
 .container-fluid {
@@ -165,7 +234,7 @@ img {
 #jumbo-center h2 {
   text-align: center;
   display: inline-block;
-  padding: 2em;
+  /*padding: 2em;*/
 }
 
 #jumbo-center button, a, a:link, a:hover, a:active, a:visited {
@@ -198,6 +267,20 @@ img {
 
 }
 
+a {
+  padding:0px;
+}
+
+.featurette#artwork-description-box {
+  border: 2px solid #001F84;
+  box-shadow: 1px 1px 1px #001F84;
+  border-radius: 5px;
+  background-color: white;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 2em;
+  padding-top: 0;
+}
 
 .featurette#login {
   border: 1px solid gray;

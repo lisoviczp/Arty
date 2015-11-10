@@ -1,44 +1,52 @@
 <p id="notice"><%= notice %></p>
 
+<head>
+  <title>Artshop</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
 <div class="show-contents" style="width: 50%; margin-left: 25%">
   <h2 class="featurette-heading" id="center"><%= @artwork.name %></h2>
   <div class="solo-artwork">
     <%= image_tag @artwork.image.url %>
   </div>
 
-  <hr class="featurette-divider">
-  <div class="featurette">
-    <div class="featurette-image pull-right" > <%= image_tag(@artwork.artist.image.url, size: "75x400", alt: "Edit Entry") %> </div>
+  </br><hr class="featurette-divider">
+  <div class="featurette" id="artwork-description-box">
+<!--     <div class="featurette-image pull-right" > <% image_tag(@artwork.artist.image.url, size: "75x400", alt: "Edit Entry") %> </div> -->
     <p class="lead">
       <p>
       <% if @artwork.availability %>
-        <p id="available"> Available </p>
+        <p class="right" id="available"> Available </p>
       <% else %>
-        <p id="sold"> SOLD </p>
+        <p class="right" id="sold"> SOLD </p>
       <% end %>
       </p> </br>
-      <p>
-        <strong>Creator:</strong>
-        <%= @artwork.artist.full_name %>
-      </p>
-      <p>
-        <strong>Medium:</strong>
-        <%= @artwork.content_type %>
-      </p>
-      <p>
-        <strong>Collection boolean:</strong>
-        <%= @artwork.collection_boolean %>
-      </p>
-      <p>
-        <strong>Description:</strong>
-        <%= @artwork.description %>
-      </p>
-      <p>
-        <% if @artwork.artist == current_artist %>
-          <%= link_to 'edit', edit_artwork_path(@artwork) %> |
-          <%= link_to 'delete', @artwork, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      </p>
+      <div class="artwork-description">
+        <p>
+          <strong>artist</strong></br>
+          <%= link_to @artwork.artist.full_name, artist_path(@artwork.artist) %>
+        </p>
+        <p>
+          <strong>medium:</strong></br>
+          <%= @artwork.content_type %>
+        </p>
+        <p>
+          <strong>about</strong></br>
+          <%= @artwork.description %>
+        </p>
+        <p>
+          <% if @artwork.artist == current_artist %>
+            <%= link_to 'edit', edit_artwork_path(@artwork) %> |
+            <a href=''><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> </a>
+            <%= link_to 'delete', @artwork, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <a href=''><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> </a>
+          <% end %>
+        </p>
+      </div>
     </p>
   </div>
 
