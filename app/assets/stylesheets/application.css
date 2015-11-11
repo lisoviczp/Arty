@@ -247,6 +247,7 @@ body.container {
 .show-contents {
   /*float:left;*/
   /*border: 1px solid orange;*/
+  /*background-color: white;*/
 }
 
 .container-fluid {
@@ -262,8 +263,8 @@ body.container {
 }
 
 .jumbotron {
-  /*background-image: url('/assets/tp2.png');*/
-  background-color: #009bbb;
+  background-image: url('/assets/montana.jpg');
+  /*background-color: #EBF3FF;*/
   color: white;
 /*  padding-top: 1em;
   padding-left: 2em;
@@ -303,17 +304,17 @@ body.container {
 }
 
 .new-form {
-  width: 40%;
+  width: 33.3%;
   /*text-align: center;*/
-  /*border: 2px solid green;*/
-
-  margin-left: 30%;
+  border: 2px solid gray;
+  margin-left: 33.3%;
   margin-top: 2.5em;
-  margin-bottom: 20em;
+  margin-bottom: 12em;
   padding-top: 1em;
   padding-left: 3em;
   padding-right: 3em;
-  padding-bottom: 7em;
+  /*padding-bottom: 1em;*/
+  background-color: white;
 
 }
 
@@ -333,7 +334,7 @@ a {
 }
 
 .featurette#login {
-  border: 1px solid gray;
+  /*border: 1px solid gray;*/
   background-color: white;
   margin-top: 0;
   padding-top: 1em;
@@ -360,6 +361,7 @@ a {
   margin-left: 30%;
   text-align: center;
   border:1px solid gray;
+  background-color: white;
 }
 
 /*====================================================================================================*/

@@ -39,6 +39,19 @@ table {
   word-wrap: break-word;
 }
 
+
+body {
+  background-image: url('/assets/mtn.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color:#fff;
+    background-color:#333;
+    font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+}
+
+
 </style>
 
 <div class="content-container">
@@ -48,9 +61,9 @@ table {
       <div class="featurette-image pull-right" id="image-thumbnail" > <%= link_to image_tag(artist.image.url, alt: "Edit Entry"), artist %> </div>
       <div class="artist-list-item-description">
         <h2 class="featurette-heading"><%= artist.full_name if artist.first_name %></h2>
-        <p class="lead"><%= artist.email if artist.email  %></p>
-        <p class="lead">  <%= artist.artist_type if artist.artist_type %></p>
-        <p class="lead"> <%= artist.description if artist.description %></p>
+        <p class="lead" style="color:gray;"><%= artist.email if artist.email  %></p>
+        <p class="lead" style="color:gray;" ><%= artist.artist_type if artist.artist_type %></p>
+        <p class="lead" style="color:gray;"><%= artist.description if artist.description %></p>
       </div>
     </div>
     <br><hr class="featurette-divider"></br>

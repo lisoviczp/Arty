@@ -1,3 +1,13 @@
+<style>
+
+body {
+  background-image: url('/assets/dummy.jpg');
+  background-position: fixed;
+}
+
+</style>
+
+
 <div class="new-form" style="margin:5em;">
   <%= simple_form_for(@artist) do |f| %>
     <% if @artist.errors.any? %>

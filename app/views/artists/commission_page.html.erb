@@ -1,28 +1,53 @@
 <style>
 
-.commission-form textarea {
-	width: 33%;
-	height: 250px;
-	border: 1px solid black;
-	padding-top: 0;
-}
+    .commission-form textarea {
+    	width: 33%;
+    	height: 250px;
+    	border: 1px solid black;
+    	padding-top: 0;
+    }
 
-input {
-	padding-top: 0;
-}
+    input {
+    	padding-top: 0;
+    }
 
-#jumbo-center {
-	text-align: center;
-	color:black;
-}
+    #jumbo-center {
+    	text-align: center;
+    	color:black;
+    }
+
+    body {
+      background-image: url('/assets/dummy.jpg');
+      background-position: fixed;
+    }
 
 </style>
 
 
 
-<div class="jumbotron" id="jumbo-center">
+<div class="new-form">
   <h3> <%= @artist.full_name if @artist.first_name %></h3>
-	<div class="container">
+    <div class="featurette" id="login">
+      <%= form_tag commission_artist_path do %>
+          <label for="comment">Describe your desired art:</label>
+          <textarea name="commission-comment" class="form-control" rows="5" id="comment"></textarea>
+          <label for="comment">When do you want it by?</label>
+          <input name="commission-due-date" type="text"> </input></br>
+          <label for="comment">What are you willing to pay?</label>
+          <input name="commission-price" type="text"> </input>
+        <div><%= submit_tag 'send commission request' %></div>
+      <% end %>
+    </div>
+    <!-- <p> <% link_to "send commission request", commission_artist_path %></p> -->
+</div>
+
+
+<hr>  
+
+
+<div class="jumbotron" id="jumbo-center" style="display:none;">
+  <h3> <%= @artist.full_name if @artist.first_name %></h3>
+	<div class="container fluid">
 	  <div class="form-group">
 		  <%= form_tag commission_artist_path do %>
 		      <label for="comment">Describe your desired art:</label>
@@ -35,29 +60,9 @@ input {
 		  <% end %>
       </div>
 	  <!-- <p> <% link_to "send commission request", commission_artist_path %></p> -->
-
 	</div>
 </div>
 
-<div class="content container-fluid" style="">
-  <% Artwork.all.each do |artwork| %>
-    <div class="featurette" id="listing-featurette">
-      <div class="field">
-      <% if artwork.artist == @artist %>
-        <div class="pull-left"id ="artwork-medium"> <%= link_to image_tag(artwork.image.url(:medium)), artwork  %> </div>
-          <h3 class="featurette-heading"> <%=artwork.name %></h3>
-          <p id="price">price: $<%= artwork.price %> </p>
-          <% if artwork.availability %>
-            <p id="available"> Available </p>
-          <% else %>
-            <p id="sold"> SOLD </p>
-          <% end %>
-      <% end %>
-      </div>
-    </div>
-    <hr class="featurette-divider"/>    
-  <% end %>
-</div>
 
 
 <!-- sample form test...
