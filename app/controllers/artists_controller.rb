@@ -20,6 +20,10 @@ class ArtistsController < ApplicationController
 
   end
 
+  def messages
+    @messages = Message.where(artist: current_artist)
+  end
+
   def commission_artist
     # pry
     @artist = Artist.find(params[:id])  
@@ -38,6 +42,8 @@ class ArtistsController < ApplicationController
       puts @comment
       puts @due_date
       puts @price
+      new_message = Message.new(comment: @comment, due_date: @due_date, price: @price, artist: @artist, user: @curr_user)
+      new_message.save
       #ArtistMailer.commission_notify_email(@artist, @comment, @due_date, @price).deliver!
       # pry
       redirect_to root_path
@@ -108,6 +114,6 @@ class ArtistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:email, :first_name, :last_name, :url, :city, :artist_type, :description, :image, artworks: [])
+      params.require(:artist).permit(:email, :first_name, :last_name, :url, :city, :artist_type, :description, :image, artworks: [], messages: [])
     end
 end

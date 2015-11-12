@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root to: "artworks#index"
   get 'sign_in' => 'signin#index', as: :sign_in
 
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   resources :artworks
   resources :artists
   resources :users
+  resources :messages
 
   resources :models
 
@@ -17,6 +19,12 @@ Rails.application.routes.draw do
   # call the actual URL for sending the commission email
   post '/artists/:id/commission_artist', to: 'artists#commission_artist', as: :commission_artist
   # get '/artists/:id/commission_artist', to: 'artists#commission_artist', as: :commission_artist
+
+  
+  get '/artists/:id/messages', to: 'artists#messages', as: :artist_messages
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

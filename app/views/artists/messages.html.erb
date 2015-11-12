@@ -1,0 +1,16 @@
+
+
+<div class="content-container">
+<h1 class="page-title">your requests</h1>
+  <% @messages.each do |message| %>
+    <div class="featurette" id="message-list-item">
+      <div class="message-list-item-description">
+        <h2 class="featurette-heading"><%= message.full_name if message.first_name %></h2>
+        <p class="lead" style="color:gray;"><%= message.comment if message.comment  %></p>
+        <p class="lead" style="color:gray;" ><%= message.price if message.price %></p>
+        <p class="lead" style="color:gray;"><%= message.due_date if message.due_date %></p>
+      </div>
+    </div>
+    <br><hr class="featurette-divider"></br>
+  <% end %>
+</div>

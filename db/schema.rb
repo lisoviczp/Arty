@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151106004144) do
+ActiveRecord::Schema.define(version: 20151112034452) do
 
   create_table "artists", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(version: 20151106004144) do
 
 # Could not dump table "artworks" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
+
+  create_table "messages", force: true do |t|
+    t.text     "comment"
+    t.date     "due_date"
+    t.decimal  "price"
+    t.integer  "artist_id"
+    t.integer  "user_id"
+    t.boolean  "accepted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "models", force: true do |t|
     t.string   "Artwork"

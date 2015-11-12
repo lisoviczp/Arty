@@ -9,6 +9,7 @@ class Artist < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :artworks
+  has_many :messages
 
   def full_name
   	self.first_name + ' ' + self.last_name

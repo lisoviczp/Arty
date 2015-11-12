@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment: MyText
+  due_date: 2015-11-11
+  price: 9.99
+  artist_id: 1
+  user_id: 1
+  accepted: false
+
+two:
+  comment: MyText
+  due_date: 2015-11-11
+  price: 9.99
+  artist_id: 1
+  user_id: 1
+  accepted: false

@@ -364,6 +364,58 @@ a {
   background-color: white;
 }
 
+tbody td {
+  font-size: 0.9em;
+  font-family: helvetica;
+}
+
+img {
+  width: 300px;
+}
+
+table {
+  /*width: 100%;*/
+  /*border: 1px solid black;*/
+}
+
+#image-thumbnail.featurette-image.pull-right img {
+  height:200px;
+  width: auto;
+  margin-top: 4em;
+  margin-bottom: 4em;
+  padding-bottom: 1em;
+
+}
+
+#artist-list-item.featurette {
+  width: 60%;
+  margin-left: 20%;
+  border: 2px solid #001F84;
+  box-shadow: 1px 1px 1px #001F84;
+  border-radius: 5px;
+  background-color: white;
+  margin-bottom: 1em;
+}
+
+.artist-list-item-description {
+  padding: 1em;
+  padding-bottom: 2em;
+  word-wrap: break-word;
+}
+
+
+body {
+  background-image: url('/assets/mtn.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color:#fff;
+    background-color:#333;
+    font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+}
+
+
 /*====================================================================================================*/
 /*featurette stuff*/
 
