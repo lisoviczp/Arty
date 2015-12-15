@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112034452) do
+ActiveRecord::Schema.define(version: 20151215012937) do
 
   create_table "artists", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20151112034452) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "url"
+    t.boolean  "creator"
   end
 
   add_index "artists", ["email"], name: "index_artists_on_email", unique: true

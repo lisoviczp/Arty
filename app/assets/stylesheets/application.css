@@ -299,7 +299,7 @@ body.container {
 }
 
 #sold {
-  font-size: 3em;
+  font-size: 2em;
   color: red;
 }
 
@@ -414,6 +414,13 @@ body {
     background-color:#333;
     font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
 }
+
+#message-list-item {
+  background-color: white;
+  width: 60%;
+  margin-left: 20%;
+}
+
 
 
 /*====================================================================================================*/
@@ -578,10 +585,14 @@ body {
       width: 40%;
       margin-left: 2em;
       margin-right: 4em;
-      margin-top: 2em;
+      margin-top: 0;
       padding-top: 0;
       padding-left: 1em;
       float: right;
+    }
+
+    .artist-work-description {
+      color: gray;
     }
 
     .featurette-image {

@@ -35,17 +35,19 @@ class ArtistsController < ApplicationController
       elsif current_user
         @curr_user = current_user
       end
-      pry
+      # pry
       @comment=request.POST['commission-comment']
       @due_date=request.POST['commission-due-date']
       @price=request.POST['commission-price']
       puts @comment
       puts @due_date
       puts @price
-      new_message = Message.new(comment: @comment, due_date: @due_date, price: @price, artist: @artist, user: @curr_user)
+      new_message = Message.new(comment: @comment, due_date: @due_date, price: @price, artist: @artist)
       new_message.save
-      #ArtistMailer.commission_notify_email(@artist, @comment, @due_date, @price).deliver!
+      @message=new_message
+      ArtistMailer.commission_notify_email(@artist, @comment, @due_date, @price, @message).deliver!
       # pry
+      flash[:notice] = "Successfully submitted a commission request to #{@artist.full_name}"
       redirect_to root_path
     else
       puts "whatttt"

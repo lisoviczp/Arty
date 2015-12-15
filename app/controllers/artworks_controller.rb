@@ -13,7 +13,7 @@ class ArtworksController < ApplicationController
   def show
     # uncomment this, it works...
     # UserMailer.welcome_email(@user).deliver_now
-    # UserMailer.commission_notify_email(@user).deliver_now
+    # ArtistMailer.commission_notify_email(@user).deliver_now
   end
 
   # GET /artworks/new

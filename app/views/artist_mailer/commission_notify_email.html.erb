@@ -53,7 +53,7 @@
         <tr>
           <td id="commission-notification" colspan="2">
             <h3 id="commission-notification-header" style="color:green">Congratulations <%= @artist.first_name %>, your art is wanted!</h3>
-            Artery user Phillip L wants to put you to work
+            Artery wants to put you to work
           </td>
         </tr>
         <tr>
@@ -74,7 +74,7 @@
           <td valign="top">
             <p id="commission-notification">
               Phillip L would like to pay you $<%= @price %> for this work to be finished by <%= @due_date %>. Do you accept this offer?</p>
-            <p> <button> accept </button> <button> decline </button> <button> make counter offer</button> </p>
+            <p> <button> <a href="http://localhost:3000/messages/<%= @message.id %>"> view </a> </button> </p>
           </td>
         </tr>
         <tr>

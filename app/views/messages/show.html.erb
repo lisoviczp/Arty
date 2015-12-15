@@ -1,34 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @message.comment %>
-</p>
+<% if @message.artist == current_artist %>
+  <div class="featurette" id="message-list-item" style="margin-top: 2%; padding-bottom: 2%;">
+      <p>
+        <strong>Comment:</strong>
+        <%= @message.comment %>
+      </p>
 
-<p>
-  <strong>Due date:</strong>
-  <%= @message.due_date %>
-</p>
+      <p>
+        <strong>Due date:</strong>
+        <%= @message.due_date %>
+      </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @message.price %>
-</p>
+      <p>
+        <strong>Price: $</strong>
+        <%= @message.price %>
+      </p>
 
-<p>
-  <strong>Artist:</strong>
-  <%= @message.artist_id %>
-</p>
+      <p>
+        <strong>Artist:</strong>
+        <%= @message.artist.full_name %>
+      </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @message.user_id %>
-</p>
+      <p>
+        <strong>Requester:</strong>
+        <%= @message.user_id %>
+      </p>
 
-<p>
-  <strong>Accepted:</strong>
-  <%= @message.accepted %>
-</p>
+      <p>
+        <strong>Accepted:</strong>
+        <% if @message.accepted %>
+          yes
+        <% else %>
+          no
+        <% end %>
+      </p>
 
-<%= link_to 'Edit', edit_message_path(@message) %> |
-<%= link_to 'Back', messages_path %>
+      <div id="message-options" style="text-align: center;">
+        <%= link_to 'accept', accept_message_path(@message) %> |
+        <%= link_to 'decline', decline_message_path(@message) %> |
+        <%= link_to 'make counter offer', messages_path %>
+      </div>
+  </div>
+<% end %>

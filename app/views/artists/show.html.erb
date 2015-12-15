@@ -39,34 +39,40 @@
       <% image_tag @artist.image.url(:small) if @artist.image %>
     </p>
     <% if @artist == current_artist %>
-      <p> <%= link_to 'edit profile', edit_artist_path(@artist) %></p>
+      <p> <% link_to 'edit profile', edit_artist_path(@artist) %></p>
       <!-- <% link_to 'Destroy', @artist, method: :delete, data: { confirm: 'Are you sure?' } %> -->
       <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
     <% end %>
     <!-- <p> <a href='/artists/"#{@artist.id}"/commission_artist'> commission this artist! </p> -->
-    <p> <%= link_to "commission this artist!", commission_page_path %></p>
+    <button type="button" class="btn btn-secondary-outline"><%= link_to "commission this artist!", commission_page_path %></button>
   </div>
 </div>
 
 
 <div class="content container-fluid" style="">
   <% Artwork.all.each do |artwork| %>
-    <div class="featurette" id="listing-featurette">
-      <% if artwork.artist == @artist %>
-        <div class="pull-left"id ="artwork-medium"> <%= link_to image_tag(artwork.image.url(:medium)), artwork  %> 
+    <% if artwork.artist == @artist %>
+    <div class="featurette" id="listing-featurette" style="background-color:white; border: 1px solid green;">
+      
+        <div class="pull-left" id ="artwork-medium"> <%= link_to image_tag(artwork.image.url(:medium)), artwork  %> 
         </div>
         <div id="artist-work-description-box">
           <h3 class="featurette-heading"> <%=artwork.name %></h3>
-          <p id="price">price: $<%= artwork.price %> </p>
-          <% if artwork.availability %>
-            <p id="available"> Available </p>
-          <% else %>
-            <p id="sold"> SOLD </p>
-          <% end %>
-          <% if artwork.artist == current_artist %>
-            <%= link_to 'Edit', edit_artwork_path(artwork) %>
-            <% link_to 'delete', artwork, method: :delete, data: { confirm: 'Are you sure?' } %></br> </br></br> </br>
-          <% end %>
+          <div class="artist-work-description">
+            <p id="price">price: <%= sprintf( "$%.02f" , artwork.price )  if artwork.price %> </p>
+            <% if artwork.description %>
+              <%= artwork.description %>
+            <% end %> </p>
+            <% if artwork.availability %>
+              <p id="available"> Available </p>
+            <% else %>
+              <p id="sold"> SOLD </p>
+            <% end %>
+            <% if artwork.artist == current_artist %>
+              <%= link_to 'Edit', edit_artwork_path(artwork) %>
+              <% link_to 'delete', artwork, method: :delete, data: { confirm: 'Are you sure?' } %></br> </br></br> </br>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>

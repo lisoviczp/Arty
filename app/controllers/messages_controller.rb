@@ -36,6 +36,21 @@ class MessagesController < ApplicationController
     respond_with(@message)
   end
 
+  def accept
+    @message = Message.find(params[:id])  
+    @message.accept_message
+    @message.save
+    redirect_to root_path
+  end
+
+  def decline
+    @message = Message.find(params[:id])
+    @message.decline_message
+    @message.save
+    redirect_to root_path
+    
+  end
+
   private
     def set_message
       @message = Message.find(params[:id])

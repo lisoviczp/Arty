@@ -24,6 +24,12 @@ Rails.application.routes.draw do
   get '/artists/:id/messages', to: 'artists#messages', as: :artist_messages
 
 
+  get '/messages/:id/accept', to: 'messages#accept', as: :accept_message
+  get '/messages/:id/decline', to: 'messages#decline', as: :decline_message
+
+
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
